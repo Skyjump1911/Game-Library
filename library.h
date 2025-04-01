@@ -51,17 +51,17 @@ float hours_played, float price, int year);
 
   void print(); 
   
+private:
 
+  game *head;
+  game *tail;
+  game *n; 
 
+  
 }
 
 
 
 
 
-
-
-
-
-
-#ifndef
+#endif

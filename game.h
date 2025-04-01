@@ -19,8 +19,6 @@
 #include <iomanip>
 
 struct game {
-
- public:
   
   string title; 
   string publisher;
@@ -28,8 +26,7 @@ struct game {
   float hours_played;
   float price;
   int year;
-  
- private: 
+   
 
 
 
