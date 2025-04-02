@@ -21,10 +21,48 @@
 library::library() {
 
 
-  head = NULL;
-  tail = NULL;
-  n = NULL; 
+  list<game> games;
+  
+
+
+}
+
+
+//destructor
+library::~library();
+
+
+void library::read_from_file(const std::string& filename) {
+
+  ifstream file;
+  file.open(filename);
+
+  string title, publisher, genre;
+  float hours_played, price;
+  int year; 
+
+  getline(file, title);
+  cin.ignore();
+  getline(file, publisher);
+  cin.ignore();
+
+  file >> genre >> hours_played >> price >> year;
+
+  while(file) {
+
+    games.push_back(title, publisher, genre, hours_played, price, year); 
+
+  }
 
 
 
 }
+
+
+void library::find_game(const std::string& title);
+
+void library::find_genre(const std::string& genre);
+
+void library::delete(std::string title, int year);
+
+void library::print(); 

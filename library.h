@@ -31,11 +31,7 @@ class library {
   ~library();
 
 
-  //methods
-  void push_front(std::string title, std::string publisher, std::string genre, float hours_played, float price, int year);
-
-  void push_back(std::string title, std::string publisher, std::string genre, 
-float hours_played, float price, int year);      
+  //methods      
 
   void write_to_file(const std::string& filename);
 
@@ -50,12 +46,7 @@ float hours_played, float price, int year);
   void delete(std::string title, int year);
 
   void print(); 
-  
-private:
-
-  game *head;
-  game *tail;
-  game *n; 
+ 
 
   
 }
