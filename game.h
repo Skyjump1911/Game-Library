@@ -29,11 +29,7 @@ struct game {
    
 
 
-
-
 }
-
-
 
 
 
