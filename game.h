@@ -20,16 +20,16 @@
 
 struct game {
   
-  string title; 
-  string publisher;
-  string genre;
+  std::string title; 
+  std::string publisher;
+  std::string genre;
   float hours_played;
   float price;
   int year;
    
 
 
-}
+};
 
 
 

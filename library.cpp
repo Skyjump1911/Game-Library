@@ -16,12 +16,13 @@
 #include <fstream>
 #include <list>
 
+using namespace std; 
 
 //default constructor
 library::library() {
 
 
-  list<game> games;
+  games = list<game>(); 
   
 
 
@@ -29,7 +30,7 @@ library::library() {
 
 
 //destructor
-library::~library();
+//library::~library();
 
 
 void library::read_from_file(const std::string& filename) {
@@ -38,31 +39,102 @@ void library::read_from_file(const std::string& filename) {
   file.open(filename);
 
   string title, publisher, genre;
-  float hours_played, price;
-  int year; 
-
-  getline(file, title);
-  cin.ignore();
-  getline(file, publisher);
-  cin.ignore();
+  float hours_played = 0;
+  float price = 0;
+  int year = 0; 
+  game tempEntry; 
+   string trash1, trash2;
+  getline(file, tempEntry.title);
+  // getline(file, trash1); 
+  getline(file, tempEntry.publisher);
+  // getline(file, trash2); 
 
   file >> genre >> hours_played >> price >> year;
 
-  while(file) {
+  tempEntry.genre = genre; 
+  tempEntry.hours_played = hours_played;
+  tempEntry.price = price;
+  tempEntry.year = year;
+  
 
-    games.push_back(title, publisher, genre, hours_played, price, year); 
+  games.push_back(tempEntry);
+  
+  while(file) {
+  
+  getline(file, tempEntry.title);
+  // getline(file, trash1);
+  getline(file, tempEntry.publisher);
+  getline(file, trash2); 
+
+  file >> genre >> hours_played >> price >> year;
+
+  tempEntry.genre = genre; 
+  tempEntry.hours_played = hours_played; 
+  tempEntry.price = price;
+  tempEntry.year = year; 
+
+  games.push_back(tempEntry); 
 
   }
 
+}
+
+
+void library::write_to_file(const std::string& filename) {
+
+  list<game> test = {{"Title", "Publisher","genre", 33.3, 22.2, 2019}, {"title", "publisher", "Genre",  32.2, 1.2, 2008}};
+
+
+    ofstream file;
+  file.open(filename);
+
+  for(list<game>::iterator it = test.begin(); it != test.end(); it++) {
+
+    file << it->title << endl;
+    file << it->publisher << endl;
+    file << it->genre << " " << it->hours_played << " " <<  it->price << " " << it->year << endl;  
+
+
+
+  }
 
 
 }
 
 
+
+/**
 void library::find_game(const std::string& title);
 
 void library::find_genre(const std::string& genre);
 
-void library::delete(std::string title, int year);
+void library::Delete(std::string title, int year);
+ 
+**/
 
-void library::print(); 
+
+void library::print() {
+
+
+  
+  string filename;
+
+  cout << "enter a file name";
+  cin >> filename;
+  
+  read_from_file(filename);
+
+
+  cout << "it got done with reading the file";
+
+  
+  for(list<game>::iterator it = games.begin(); it != games.end(); it++) {
+
+    cout << it->title << endl;
+    cout << it->publisher << endl;
+    cout << it->genre << " " << it->hours_played << " " <<  it->price << " " << it->year << endl;  
+
+
+
+  }
+}

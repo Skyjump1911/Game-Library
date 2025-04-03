@@ -24,11 +24,12 @@ class library {
 
  public:
 
+  std::list<game> games; 
   //constructor
   library();
 
   //destructor
-  ~library();
+  //  ~library();
 
 
   //methods      
@@ -43,13 +44,13 @@ class library {
 
   void find_game(const std::string& title);
 
-  void delete(std::string title, int year);
+  void Delete(std::string title, int year);
 
   void print(); 
  
 
   
-}
+};
 
 
 
