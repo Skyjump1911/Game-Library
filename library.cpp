@@ -107,10 +107,19 @@ void library::write_to_file(const std::string& filename) {
 void library::find_game(const std::string& title);
 
 void library::find_genre(const std::string& genre);
-
-void library::Delete(std::string title, int year);
  
 **/
+
+bool library::Delete(std::string title, int year) {
+
+  // Check if the list contains any elements
+  if (head == NULL) {
+    std::cout << "Your game library is empty\n";
+    return false;
+  }
+
+  
+}
 
 
 void library::print() {
