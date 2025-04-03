@@ -44,7 +44,7 @@ class library {
 
   void find_game(const std::string& title);
 
-  void Delete(std::string title, int year);
+  bool Delete(std::string title, int year);
 
   void print(); 
  
