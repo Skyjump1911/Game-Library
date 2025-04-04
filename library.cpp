@@ -32,7 +32,6 @@ library::library() {
 //destructor
 //library::~library();
 
-
 void library::read_from_file(const std::string& filename) {
 
   ifstream file;
@@ -44,10 +43,10 @@ void library::read_from_file(const std::string& filename) {
   int year = 0; 
   game tempEntry; 
    string trash1, trash2;
-  getline(file, tempEntry.title);
-  // getline(file, trash1); 
-  getline(file, tempEntry.publisher);
-  // getline(file, trash2); 
+   getline(file, tempEntry.title);
+ 
+   getline(file, tempEntry.publisher);
+ 
 
   file >> genre >> hours_played >> price >> year;
 
@@ -55,16 +54,18 @@ void library::read_from_file(const std::string& filename) {
   tempEntry.hours_played = hours_played;
   tempEntry.price = price;
   tempEntry.year = year;
-  
+  file.ignore(); 
 
   games.push_back(tempEntry);
   
-  while(file) {
+   
+  while(!file.eof()) {
   
   getline(file, tempEntry.title);
-  // getline(file, trash1);
+ 
+   
   getline(file, tempEntry.publisher);
-  getline(file, trash2); 
+ 
 
   file >> genre >> hours_played >> price >> year;
 
@@ -73,11 +74,13 @@ void library::read_from_file(const std::string& filename) {
   tempEntry.price = price;
   tempEntry.year = year; 
 
-  games.push_back(tempEntry); 
-
+  games.push_back(tempEntry);  
+  file.ignore(); 
   }
 
+  games.pop_back(); 
 }
+
 
 
 void library::write_to_file(const std::string& filename) {
@@ -141,18 +144,17 @@ void library::print() {
   cin >> filename;
   
   read_from_file(filename);
-
-
-  cout << "it got done with reading the file";
-
+ 
   
   for(list<game>::iterator it = games.begin(); it != games.end(); it++) {
 
     cout << it->title << endl;
     cout << it->publisher << endl;
-    cout << it->genre << " " << it->hours_played << " " <<  it->price << " " << it->year << endl;  
+    cout << it->genre << " " << it->hours_played << " " <<  it->price << " " << it->year << endl;
 
+    cout << endl; 
 
+    
 
   }
 }
