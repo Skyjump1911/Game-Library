@@ -11,7 +11,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-
+#include "library.h"
 #include <string>
 #include <iostream>
 #include <fstream>
