@@ -1,4 +1,4 @@
-/**
+                                                                                                                                                                                                                      /**
  * @file main.cpp
  * @author Sam Toney and Noah Melton
  * @date 2025-04-01
@@ -19,20 +19,32 @@ using namespace std;
 int main () {
 
 
-
+  string filename; 
   
   library test;
 
+  test.displayMenu();   
+  cout << endl;
+  cout << endl;
+  cout << endl;
+
+  cout << "enter a filename: ";
+  cin >> filename;
+  test.read_from_file(filename); 
+
+    
+  
 
   /**
-library system;
+test.displayMenu(); 
 
-  int userInput = 0;
-  string fileName = "";
+
+  int userInput;
+  string fileName;
 
   do {
 
-    system.displayMenu();
+    test.displayMenu();
 
     cin >> userInput;
 
@@ -40,8 +52,9 @@ library system;
 
     case 1: // Read from file
       
-      // cout << "enter a file name"; 
-      // cin >> fileName;
+      cout << "Please enter your file name: ";
+      cin >> fileName;
+      test.read_from_file(fileName); 
 
       break;
 
@@ -70,8 +83,7 @@ library system;
   } while (userInput != 5);
   
  
-
   **/
-  
+   
     return 0;
 }

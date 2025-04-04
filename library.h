@@ -47,7 +47,7 @@ class library {
 
   bool Delete(std::string title, int year);
 
-  void print();
+  void print(); 
 
   void displayMenu();
  
