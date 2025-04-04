@@ -158,13 +158,15 @@ void library::print() {
 
 void library::displayMenu() {
 
+  cout << endl;
   cout << "Game Library Program loaded...\n\n";
   cout << "Please select one of the following options:\n";
-  cout << "============================================\n";
+  cout << "===========================================\n";
   cout << "1 - Read from file\n";
   cout << "2 - Write to file\n";
   cout << "3 - Delete entry\n";
   cout << "4 - Print file\n";
-  cout << "5 - Exit Program\n"; 
+  cout << "5 - Exit Program\n\n";
+  cout << "Please enter desired option: ";
   
 }

@@ -19,15 +19,51 @@ using namespace std;
 int main () {
 
 
-  library test; 
-  string fileName = "";  
-  //  cout << "enter a file name"; 
-  //cin >> fileName;
+  library test;
+  library system;
 
-  //  test.write_to_file(fileName); 
+  int userInput = 0;
+  string fileName = "";
 
-  test.print(); 
+  do {
 
+    system.displayMenu();
 
+    cin >> userInput;
 
+    switch(userInput) {
+
+    case 1: // Read from file
+      
+      // cout << "enter a file name"; 
+      // cin >> fileName;
+
+      break;
+
+    case 2: // Write to file
+
+      // test.write_to_file(fileName);
+
+      break;
+
+    case 3: // Delete entry
+
+      break;
+
+    case 4: // Print file
+
+      test.print();
+
+      break;
+
+    case 5: // Exit program
+
+      cout << "Program has been exited...\n";
+
+    }
+
+  } while (userInput != 5);
+  
+  
+    return 0;
 }
