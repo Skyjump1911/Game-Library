@@ -113,11 +113,19 @@ void library::find_genre(const std::string& genre);
 bool library::Delete(std::string title, int year) {
 
   // Check if the list contains any elements
-  if (head == NULL) {
-    std::cout << "Your game library is empty\n";
+  if (games.empty()) {
+    std::cout << "Your game library is empty...\n";
     return false;
   }
 
+  // Check current size of library
+  int librarySize = games.size();
+
+  games.remove_if([&title, year](const game& game) {
+    return game.title == title && game.year == year;
+  });
+		    
+  
   return true;
 }
 

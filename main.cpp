@@ -11,6 +11,7 @@
 #include <iostream>
 #include <iomanip>
 #include "library.h"
+#include "game.h"
 #include <string>
 
 using namespace std;

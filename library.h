@@ -8,11 +8,12 @@
  */
 
 
-#include "game.h"
+
 
 #ifndef LIBRARY_H
 #define LIBRARY_H
 
+#include "game.h"
 #include <string>
 #include <iostream>
 #include <iomanip>
