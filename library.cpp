@@ -30,8 +30,20 @@ library::library() {
 
 
 //destructor
-//library::~library();
+//library::~
 
+
+/**
+ * The read from file function
+ *
+ * @param const std::string& filename this is the name of the file we want to read from 
+ * @pre Requires a file that has the information displayed in the proper format
+ * @return void This function doesn't return anything
+ * @post Our linked list is populated with the contents of the file
+ * 
+ */
+
+//should be working as needed. 
 void library::read_from_file(const std::string& filename) {
 
   ifstream file;
@@ -106,12 +118,25 @@ void library::write_to_file(const std::string& filename) {
 
 
 
-/**
-void library::find_game(const std::string& title);
+//void library::find_game(const std::string& title);
 
-void library::find_genre(const std::string& genre);
- 
-**/
+void library::find_genre(const std::string& genre) {
+
+ for(list<game>::iterator it = games.begin(); it != games.end(); it++) {         
+
+   if(it->genre == genre) {
+     cout << "Game Title: " << it->title << endl;
+     cout << "Game Publisher: " << it->publisher << endl;
+     cout << "Hours Played: " << it->hours_played << endl;
+     cout << "Price: $" << it->price << endl;
+     cout << "Release Year: " << it->year << endl;
+
+   
+    }
+
+}
+}
+
 
 bool library::Delete(std::string title, int year) {
 
@@ -157,6 +182,7 @@ void library::print() {
     
 
   }
+  
 }
 
 void library::displayMenu() {
