@@ -119,14 +119,15 @@ bool library::Delete(std::string title, int year) {
   }
 
   // Check current size of library
-  int librarySize = games.size();
+  unsigned int initialSize = games.size();
 
+  // Go through list and remove entries that match desired game
   games.remove_if([&title, year](const game& game) {
     return game.title == title && game.year == year;
   });
-		    
-  
-  return true;
+
+  // If an entry has been removed return true
+  return games.size() < initialSize;
 }
 
 
