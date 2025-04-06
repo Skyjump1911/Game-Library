@@ -119,31 +119,48 @@ void library::write_to_file(const std::string& filename) {
 
 
 
-//void library::find_game(const std::string& title);
+void library::find_game(const std::string& title) {
+
+  // Check if library is empty
+  if (games.empty()) {
+    cout << "ERROR: Library is empty...\n\n";
+  }
+
+  // Go through list and print matching information
+  for (list<game>::iterator i = games.begin(); i != games.end(); i++) {
+
+    if (i->title == title) {
+      cout << "Game found...\n\n";
+      cout << "Game Title: " << i->title << endl;
+      cout << "Game Publisher: " << i->publisher << endl;
+      cout << "Hours Played: " << i->hours_played << endl;
+      cout << "Price: $" << i->price << endl;
+      cout << "Release Year: " << i->year << endl;
+    }
+  }  
+}
 
 void library::find_genre(const std::string& genre) {
 
  for(list<game>::iterator it = games.begin(); it != games.end(); it++) {         
 
    if(it->genre == genre) {
+
      cout << "Game Title: " << it->title << endl;
      cout << "Game Publisher: " << it->publisher << endl;
      cout << "Hours Played: " << it->hours_played << endl;
      cout << "Price: $" << it->price << endl;
      cout << "Release Year: " << it->year << endl;
-
-   
-    }
-
-}
+   }
+ }
 }
 
 
 bool library::Delete(std::string title, int year) {
 
-  // Check if the list contains any elements
+  // Check if library is empty
   if (games.empty()) {
-    std::cout << "Your game library is empty...\n";
+    std::cout << "ERROR: Library is empty...\n\n";
     return false;
   }
 
@@ -156,7 +173,12 @@ bool library::Delete(std::string title, int year) {
   });
 
   // If an entry has been removed return true
-  return games.size() < initialSize;
+  if (games.size() < initialSize) {
+    cout << title << " removed successfully...\n";
+    return true;
+  }
+
+  return false;
 }
 
 
@@ -191,7 +213,6 @@ void library::print() {
 void library::displayMenu() {
 
   cout << endl;
-  cout << "Game Library Program loaded...\n\n";
   cout << "Please select one of the following options:\n";
   cout << "===========================================\n";
   cout << "1 - Read from file\n";
@@ -200,7 +221,8 @@ void library::displayMenu() {
   cout << "4 - Add game (test)\n";
   cout << "5 - Delete entry\n";
   cout << "6 - Print library\n";
-  cout << "7 - Exit Program\n\n";
+  cout << "7 - Find game\n";
+  cout << "8 - Exit Program\n\n";
   cout << "Please enter desired option: ";
   
 }
