@@ -1,6 +1,6 @@
 /**
  * @file library.cpp
- * @author Noah Melton
+ * @author Noah Melton and Sam Toney
  * @date 2025-04-01
  * @brief This is the implementation of the library class
  * 
@@ -28,55 +28,46 @@ library::library() {
 //destructor
 //library::~
 
-//should be working as needed. 
 void library::read_from_file(string filename) {
+
 
   ifstream file;
   file.open(filename);
+
+  // Check if file was opened
+  if (!file) {
+    cout << "ERROR: Could not open file...\n";
+    return;
+  }
+  
 
   string title, publisher, genre;
   float hours_played = 0;
   float price = 0;
   int year = 0; 
   game tempEntry; 
-   string trash1, trash2;
-   getline(file, tempEntry.title);
- 
-   getline(file, tempEntry.publisher);
- 
+  string trash1, trash2;
 
-  file >> genre >> hours_played >> price >> year;
+  // Go through file and capture data
+  while (getline(file, tempEntry.title)) {
 
-  tempEntry.genre = genre; 
-  tempEntry.hours_played = hours_played;
-  tempEntry.price = price;
-  tempEntry.year = year;
-  file.ignore(); 
+    getline(file, tempEntry.publisher);
+    file >> genre >> hours_played >> price >> year;
 
-  games.push_back(tempEntry);
-  
-   
-  while(!file.eof()) {
-  
-  getline(file, tempEntry.title);
- 
-   
-  getline(file, tempEntry.publisher);
- 
+    tempEntry.genre = genre;
+    tempEntry.hours_played = hours_played;
+    tempEntry.price = price;
+    tempEntry.year = year;
 
-  file >> genre >> hours_played >> price >> year;
+    games.push_back(tempEntry);
 
-  tempEntry.genre = genre; 
-  tempEntry.hours_played = hours_played; 
-  tempEntry.price = price;
-  tempEntry.year = year; 
-
-  games.push_back(tempEntry);  
-  file.ignore(); 
+    file.ignore();
   }
+  
 
-  games.pop_back();
-  return; 
+
+  file.close();
+  cout << "Loaded " << games.size() << " games from file.\n";
 }
 
 
