@@ -31,6 +31,8 @@ library::library() {
 void library::read_from_file(string filename) {
 
 
+  game tempEntry;
+  
   ifstream file;
   file.open(filename);
 
@@ -39,34 +41,23 @@ void library::read_from_file(string filename) {
     cout << "ERROR: Could not open file...\n";
     return;
   }
-  
 
-  string title, publisher, genre;
-  float hours_played = 0;
-  float price = 0;
-  int year = 0; 
-  game tempEntry; 
-  string trash1, trash2;
+  string line1, line2, line3;
 
-  // Go through file and capture data
-  while (getline(file, tempEntry.title)) {
+  while(getline(file, line1) && getline(file, line2) && getline(file, line3)) {
+    
+    tempEntry.title = line1;
+    tempEntry.publisher = line2;
 
-    getline(file, tempEntry.publisher);
-    file >> genre >> hours_played >> price >> year;
+    stringstream ss(line3);
 
-    tempEntry.genre = genre;
-    tempEntry.hours_played = hours_played;
-    tempEntry.price = price;
-    tempEntry.year = year;
+    ss >> tempEntry.genre >> tempEntry.hours_played >> tempEntry.price >> tempEntry.year;
 
     games.push_back(tempEntry);
-
-    file.ignore();
   }
-  
-
 
   file.close();
+
   cout << "Loaded " << games.size() << " games from file.\n";
 }
 
