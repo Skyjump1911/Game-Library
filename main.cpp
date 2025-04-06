@@ -72,13 +72,20 @@ int main () {
 
       break;
 
-    case 6: // Exit program
+    case 6: // Print library
+
+      test.print();
+      
+      break;
+      
+
+    case 7: // Exit program
 
       cout << "Program has been exited...\n";
 
     }
 
-  } while (userInput != 5);
+  } while (userInput != 7);
   
  
 
