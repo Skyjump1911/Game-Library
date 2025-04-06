@@ -199,7 +199,8 @@ void library::displayMenu() {
   cout << "3 - Add game\n";
   cout << "4 - Add game (test)\n";
   cout << "5 - Delete entry\n";
-  cout << "6 - Exit Program\n\n";
+  cout << "6 - Print library\n";
+  cout << "7 - Exit Program\n\n";
   cout << "Please enter desired option: ";
   
 }
