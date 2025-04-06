@@ -51,7 +51,10 @@ class library {
 
   void displayMenu();
  
+  void extra();
 
+  void add();
+  
   
 };
 

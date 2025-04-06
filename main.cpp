@@ -21,24 +21,10 @@ int main () {
 
   string filename; 
   
-  library test;
-
-  test.displayMenu();   
-  cout << endl;
-  cout << endl;
-  cout << endl;
-
-  test.print();    
-
-    
-  
-
-  /**
-test.displayMenu(); 
+  library test;    
 
 
   int userInput;
-  string fileName;
 
   do {
 
@@ -51,8 +37,8 @@ test.displayMenu();
     case 1: // Read from file
       
       cout << "Please enter your file name: ";
-      cin >> fileName;
-      test.read_from_file(fileName); 
+      cin >> filename;
+      test.read_from_file(filename); 
 
       break;
 
@@ -62,14 +48,16 @@ test.displayMenu();
 
       break;
 
-    case 3: // Delete entry
+    case 3: // Add a game
 
+      test.add();
+      
       break;
 
-    case 4: // Print file
-
-      test.print();
-
+    case 4: // testing our ability to add games
+      
+      test.extra();
+      
       break;
 
     case 5: // Exit program
@@ -81,7 +69,7 @@ test.displayMenu();
   } while (userInput != 5);
   
  
-  **/
+
    
     return 0;
 }

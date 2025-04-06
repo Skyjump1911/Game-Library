@@ -101,7 +101,7 @@ void library::write_to_file(const std::string& filename) {
   list<game> test = {{"Title", "Publisher","genre", 33.3, 22.2, 2019}, {"title", "publisher", "Genre",  32.2, 1.2, 2008}};
 
 
-    ofstream file;
+  ofstream file;
   file.open(filename);
 
   for(list<game>::iterator it = test.begin(); it != test.end(); it++) {
@@ -201,4 +201,61 @@ void library::displayMenu() {
   cout << "5 - Exit Program\n\n";
   cout << "Please enter desired option: ";
   
+}
+
+
+void library::add() {
+
+
+  game temp;
+  
+
+  string T;
+  string P;
+  string G;
+  float h;
+  float p;
+  int y;
+
+ 
+    cout << "Enter the game's title: ";
+    cin >> T;
+    cout << "Enter the game's publisher: ";
+    cin >> P;
+    cout << "Enter the game's genre: ";
+    cin >> G;
+    cout << "Enter how many hours you have spent playing the game: ";
+    cin >> h;
+    cout << "Enter the game's price: ";
+    cin >> p;
+    cout << "Enter the game's release year: ";
+    cin >> y;
+
+    temp.title = T;
+    temp.publisher = P;
+    temp.genre = G;
+    temp.hours_played = h;
+    temp.price = p;
+    temp.year = y;
+
+    games.push_back(temp); 
+
+
+
+
+}
+
+void library::extra() {
+
+
+  for(list<game>::iterator it = games.begin(); it!= games.end(); it++) {
+
+    cout << "the game titles: " << endl;
+    cout << it->title << endl;
+
+
+
+
+  }
+
 }
