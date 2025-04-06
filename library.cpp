@@ -210,6 +210,7 @@ void library::displayMenu() {
   cout << "===========================================\n";
   cout << "1 - Read from file\n";
   cout << "2 - Write to file\n";
+<<<<<<< HEAD
   cout << "3 - Add game\n";
   cout << "4 - Add game (test)\n";
   cout << "5 - Delete entry\n";
@@ -263,10 +264,51 @@ void library::add() {
 
 }
 
+
+
+/**
+ * This funciton allows us to delete game entries
+ *
+ * @pre Game entries must already exist if we want to be able to delete them. 
+ * @return void No return type, just prints out what is left after deletion. 
+ * @post The list is now one specified game shorter
+ * 
+ */
+void library::subtract() {
+
+  string remTitle;
+  cout << "Enter the title of the game you want to remove from the library: " <<endl;
+  cin >> remTitle;
+
+  /**
+  I was able to use most of this logic from other parts of the code that I had
+  done already, but since I was not used to how iterators worked, I didn't know why I couldn't use the "games.erase(it)" just like that. So, I found a useful
+YouTube video by "Bo Quian" which talked about how to remove elements from an STL list. That is where I learned that I could delete using games.erase(it++). 
+
+   **/
+  
+  for(list<game>::iterator it = games.begin(); it != games.end();) {
+
+
+    if(it->title == remTitle) {
+
+      games.erase (it++);
+      cout << "possibly worked" << endl; 
+
+    } else{
+      it++;
+    }
+
+  }
+
+
+
+}
+
 void library::extra() {
 
 
-  for(list<game>::iterator it = games.begin(); it!= games.end(); it++) {
+  for(list<game>::iterator it = games.begin(); it != games.end(); it++) {
 
     cout << "the game titles: " << endl;
     cout << it->title << endl;
