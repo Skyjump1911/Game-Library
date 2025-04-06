@@ -210,7 +210,6 @@ void library::displayMenu() {
   cout << "===========================================\n";
   cout << "1 - Read from file\n";
   cout << "2 - Write to file\n";
-<<<<<<< HEAD
   cout << "3 - Add game\n";
   cout << "4 - Add game (test)\n";
   cout << "5 - Delete entry\n";
