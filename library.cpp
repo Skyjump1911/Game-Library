@@ -21,27 +21,12 @@ using namespace std;
 //default constructor
 library::library() {
 
-
   games = list<game>(); 
   
-
-
 }
-
 
 //destructor
 //library::~
-
-
-/**
- * The read from file function
- *
- * @param const std::string& filename this is the name of the file we want to read from 
- * @pre Requires a file that has the information displayed in the proper format
- * @return void This function doesn't return anything
- * @post Our linked list is populated with the contents of the file
- * 
- */
 
 //should be working as needed. 
 void library::read_from_file(string filename) {
@@ -115,6 +100,23 @@ void library::write_to_file(const std::string& filename) {
   }
 
 
+}
+
+void library::insert_sorted(const std::string &title) {
+
+  game gameObject;
+  
+  gameObject.title = title;
+  
+  // initialize iterator for loop
+  auto it = games.begin();
+
+  while (it != games.end() && it->title < gameObject.title) {
+    it++;
+  }
+
+  games.insert(it, gameObject);
+  
 }
 
 
@@ -222,7 +224,8 @@ void library::displayMenu() {
   cout << "5 - Delete entry\n";
   cout << "6 - Print library\n";
   cout << "7 - Find game\n";
-  cout << "8 - Exit Program\n\n";
+  cout << "8 - Add Game (Sorted)\n";
+  cout << "9 - Exit Program\n\n";
   cout << "Please enter desired option: ";
   
 }

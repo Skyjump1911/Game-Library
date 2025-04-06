@@ -17,14 +17,11 @@
 using namespace std;
 
 int main () {
-
-
-  string filename; 
   
   library test; 
 
   int userInput = 0, releaseYear = 0;
-  string gameTitle = "";
+  string gameTitle = "", fileName = "";
   
 
   cout << "Game Library Program Loaded\n\n";
@@ -40,14 +37,17 @@ int main () {
     case 1: // Read from file
       
       cout << "Please enter your file name: ";
-      cin >> filename;
-      test.read_from_file(filename); 
+      cin.ignore();
+      cin >> fileName;
+      test.read_from_file(fileName); 
 
       break;
 
     case 2: // Write to file
 
-      // test.write_to_file(fileName);
+      cout << "Please enter your file name: ";
+      cin >> fileName;
+      test.write_to_file(fileName);
 
       break;
 
@@ -91,13 +91,23 @@ int main () {
 
       break;
 
-    case 8: // Exit program
+    case 8: // Insert sorted
+
+      cout << "Enter game title: ";
+      cin.ignore();
+      getline(cin, gameTitle);
+      cout << endl;
+      test.insert_sorted(gameTitle);
+      
+      break;
+
+    case 9: // Exit program
 
       cout << "Program has been exited...\n";
 
     }
 
-  } while (userInput != 8);
+  } while (userInput != 9);
   
  
 
