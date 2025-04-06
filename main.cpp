@@ -21,10 +21,11 @@ int main () {
 
   string filename; 
   
-  library test;    
+  library test; 
 
-
-  int userInput;
+  int userInput = 0, releaseYear = 0;
+  string gameTitle = "";
+  
 
   do {
 
@@ -60,7 +61,18 @@ int main () {
       
       break;
 
-    case 5: // Exit program
+    case 5: // Delete game
+
+      cout << "Enter game title: ";
+      cin.ignore();
+      getline(cin, gameTitle);
+      cout << "Enter release year: ";
+      cin >> releaseYear;
+      test.Delete(gameTitle, releaseYear);
+
+      break;
+
+    case 6: // Exit program
 
       cout << "Program has been exited...\n";
 
