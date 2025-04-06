@@ -27,6 +27,8 @@ int main () {
   string gameTitle = "";
   
 
+  cout << "Game Library Program Loaded\n\n";
+  
   do {
 
     test.displayMenu();
@@ -68,6 +70,7 @@ int main () {
       getline(cin, gameTitle);
       cout << "Enter release year: ";
       cin >> releaseYear;
+      cout << endl;
       test.Delete(gameTitle, releaseYear);
 
       break;
@@ -77,15 +80,24 @@ int main () {
       test.print();
       
       break;
-      
 
-    case 7: // Exit program
+    case 7: // Find game
+
+      cout << "Enter game title: ";
+      cin.ignore();
+      getline(cin, gameTitle);
+      cout << endl;
+      test.find_game(gameTitle);
+
+      break;
+
+    case 8: // Exit program
 
       cout << "Program has been exited...\n";
 
     }
 
-  } while (userInput != 7);
+  } while (userInput != 8);
   
  
 
