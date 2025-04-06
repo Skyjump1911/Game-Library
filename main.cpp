@@ -7,7 +7,6 @@
  * Uses a linked list to organize game data.
  */
 
-
 #include <iostream>
 #include <iomanip>
 #include "library.h"
@@ -39,6 +38,7 @@ int main () {
       cout << "Please enter your file name: ";
       cin.ignore();
       cin >> fileName;
+      cout << endl;
       test.read_from_file(fileName); 
 
       break;
