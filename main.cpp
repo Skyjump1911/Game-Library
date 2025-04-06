@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                      /**
+ /**
  * @file main.cpp
  * @author Sam Toney and Noah Melton
  * @date 2025-04-01
@@ -28,9 +28,7 @@ int main () {
   cout << endl;
   cout << endl;
 
-  cout << "enter a filename: ";
-  cin >> filename;
-  test.read_from_file(filename); 
+  test.print();    
 
     
   

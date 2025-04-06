@@ -44,7 +44,7 @@ library::library() {
  */
 
 //should be working as needed. 
-void library::read_from_file(const std::string& filename) {
+void library::read_from_file(string filename) {
 
   ifstream file;
   file.open(filename);
@@ -90,7 +90,8 @@ void library::read_from_file(const std::string& filename) {
   file.ignore(); 
   }
 
-  games.pop_back(); 
+  games.pop_back();
+  return; 
 }
 
 
@@ -169,6 +170,7 @@ void library::print() {
   cin >> filename;
   
   read_from_file(filename);
+
  
   
   for(list<game>::iterator it = games.begin(); it != games.end(); it++) {
@@ -178,11 +180,11 @@ void library::print() {
     cout << it->genre << " " << it->hours_played << " " <<  it->price << " " << it->year << endl;
 
     cout << endl; 
-
+  
     
 
   }
-  
+
 }
 
   

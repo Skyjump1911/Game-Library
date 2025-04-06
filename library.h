@@ -37,7 +37,7 @@ class library {
 
   void write_to_file(const std::string& filename);
 
-  void read_from_file(const std::string& filename); 
+  void read_from_file(std::string filename); 
 
   void insert_sorted(const std::string& title);
 
