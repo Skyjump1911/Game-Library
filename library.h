@@ -87,6 +87,8 @@ class library {
   void extra();
 
   void add();
- 
+  
+  void subtract(); 
+  
 };
 #endif

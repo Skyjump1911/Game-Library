@@ -59,7 +59,7 @@ int main () {
 
     case 4: // testing our ability to add games
       
-      test.extra();
+      test.subtract();
       
       break;
 
@@ -103,13 +103,14 @@ int main () {
 
     case 9: // Exit program
 
-      cout << "Program has been exited...\n";
 
+      test.extra(); 
+
+      break;
+      
     }
 
-  } while (userInput != 9);
-  
- 
+  } while (userInput != 9); 
 
    
     return 0;
