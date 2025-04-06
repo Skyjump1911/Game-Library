@@ -74,14 +74,63 @@ class library {
  */
   void insert_sorted(const std::string& title);
 
+
+/**
+ * Searches library for a game by genre.
+ *
+ * @param const std::string& genre The type of genre to be searched for.
+ * @pre 
+ * @return void 
+ * @post The specified game(s) has been found.
+ * 
+ */
   void find_genre(const std::string& genre);
 
+
+/**
+ * Searches for a game by title.
+ *
+ * @param const std::string& title The game title to be searched for.
+ * @pre 
+ * @return void 
+ * @post The specified game has been found.
+ * 
+ */
   void find_game(const std::string& title);
 
+
+/**
+ * Deletes a specified game from the library.
+ *
+ * @param std::string title The title of the game to be removed.
+ * @param int year The release year of the game to be removed.
+ * @pre 
+ * @return bool Returns true if the game was deleted, and false if not.
+ * @post The specified game was found and deleted.
+ * 
+ */
   bool Delete(std::string title, int year);
 
+
+/**
+ * Prints game data from a file.
+ *
+ * @pre 
+ * @return void 
+ * @post The game data was properly read and printed.
+ * 
+ */
   void print(); 
 
+
+/**
+ * Displays menu options for the program.
+ *
+ * @pre 
+ * @return void 
+ * @post Menu was properly printed to console.
+ * 
+ */
   void displayMenu();
  
   void extra();
