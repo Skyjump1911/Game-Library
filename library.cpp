@@ -30,8 +30,9 @@ library::library() {
 
 void library::read_from_file(string filename) {
 
-
   game tempEntry;
+
+  string line1, line2, line3;
   
   ifstream file;
   file.open(filename);
@@ -42,17 +43,16 @@ void library::read_from_file(string filename) {
     return;
   }
 
-  string line1, line2, line3;
-
+  // Get data from file
   while(getline(file, line1) && getline(file, line2) && getline(file, line3)) {
     
     tempEntry.title = line1;
     tempEntry.publisher = line2;
 
     stringstream ss(line3);
-
     ss >> tempEntry.genre >> tempEntry.hours_played >> tempEntry.price >> tempEntry.year;
 
+    // Add entry
     games.push_back(tempEntry);
   }
 
@@ -67,7 +67,6 @@ void library::write_to_file(const std::string& filename) {
 
   list<game> test = {{"Title", "Publisher","genre", 33.3, 22.2, 2019}, {"title", "publisher", "Genre",  32.2, 1.2, 2008}};
 
-
   ofstream file;
   file.open(filename);
 
@@ -75,13 +74,8 @@ void library::write_to_file(const std::string& filename) {
 
     file << it->title << endl;
     file << it->publisher << endl;
-    file << it->genre << " " << it->hours_played << " " <<  it->price << " " << it->year << endl;  
-
-
-
+    file << it->genre << " " << it->hours_played << " " <<  it->price << " " << it->year << endl;
   }
-
-
 }
 
 void library::insert_sorted(const std::string &title) {
@@ -98,7 +92,6 @@ void library::insert_sorted(const std::string &title) {
   }
 
   games.insert(it, gameObject);
-  
 }
 
 
@@ -168,8 +161,6 @@ bool library::Delete(std::string title, int year) {
 
 void library::print() {
 
-
-  
   string filename;
 
   cout << "enter a file name";
@@ -177,20 +168,13 @@ void library::print() {
   
   read_from_file(filename);
 
- 
-  
   for(list<game>::iterator it = games.begin(); it != games.end(); it++) {
 
     cout << it->title << endl;
     cout << it->publisher << endl;
     cout << it->genre << " " << it->hours_played << " " <<  it->price << " " << it->year << endl;
-
     cout << endl; 
-  
-    
-
   }
-
 }
 
   
@@ -211,7 +195,6 @@ void library::displayMenu() {
   cout << "Please enter desired option: ";
   
 }
-
 
 void library::add() {
 
