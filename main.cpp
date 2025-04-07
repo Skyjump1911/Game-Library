@@ -57,13 +57,13 @@ int main () {
       
       break;
 
-    case 4: // testing our ability to add games
+    case 4: // Remove a game 
       
       test.subtract();
       
       break;
 
-    case 5: // Delete game
+      /**    case 5: // Delete game
 
       cout << "Enter game title: ";
       cin.ignore();
@@ -74,7 +74,13 @@ int main () {
       test.Delete(gameTitle, releaseYear);
 
       break;
+      **/
 
+    case 5: //
+
+
+      break;
+      
     case 6: // Print library
 
       test.print();

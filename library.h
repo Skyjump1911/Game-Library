@@ -48,8 +48,8 @@ class library {
  * @post Game data has been properly written to the specified file.
  * 
  */
-  void write_to_file(const std::string& filename);
-
+  void write_to_file(std::string filename);
+ 
 
 /**
  * Reads game data from a file.

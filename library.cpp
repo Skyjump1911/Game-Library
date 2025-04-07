@@ -63,14 +63,46 @@ void library::read_from_file(string filename) {
 
 
 
-void library::write_to_file(const std::string& filename) {
+void library::write_to_file(string filename) {
 
-  list<game> test = {{"Title", "Publisher","genre", 33.3, 22.2, 2019}, {"title", "publisher", "Genre",  32.2, 1.2, 2008}};
+  game temp;
+  
+  string Title;
+  string Publisher;
+  string Genre;
+  float Hours;
+  float Price;
+  int Year;
+  
+  cout << "Enter the name of the game you wish to add! " << endl;
+  cin >> Title;
+  cout << "Enter the game's publisher: " << endl;
+  cin >> Publisher;
+  cout << "Enter the game's genre: " << endl;
+  cin >> Genre;
+  cout << "Enter how many hours you have played this game: " << endl;
+  cin >> Hours;
+  cout << "Enter the games price: " << endl;
+  cin >> Price;
+  cout << "Enter the game's release year: " << endl;
+  cin >> Year;
 
+  temp.title = Title;
+  temp.publisher = Publisher;
+  temp.genre = Genre;
+  temp.hours_played = Hours;
+  temp.price = Price;
+  temp.year = Year;
+
+ 
+  games.push_back(temp); 
+  
+  
+>>>>>>> more done #3
   ofstream file;
   file.open(filename);
 
-  for(list<game>::iterator it = test.begin(); it != test.end(); it++) {
+  for(list<game>::iterator it = games.begin(); it != games.end(); it++) {
 
     file << it->title << endl;
     file << it->publisher << endl;
@@ -133,6 +165,7 @@ void library::find_genre(const std::string& genre) {
 }
 
 
+/**
 bool library::Delete(std::string title, int year) {
 
   // Check if library is empty
@@ -158,15 +191,9 @@ bool library::Delete(std::string title, int year) {
   return false;
 }
 
+**/
 
 void library::print() {
-
-  string filename;
-
-  cout << "enter a file name";
-  cin >> filename;
-  
-  read_from_file(filename);
 
   for(list<game>::iterator it = games.begin(); it != games.end(); it++) {
 
@@ -186,8 +213,8 @@ void library::displayMenu() {
   cout << "1 - Read from file\n";
   cout << "2 - Write to file\n";
   cout << "3 - Add game\n";
-  cout << "4 - Add game (test)\n";
-  cout << "5 - Delete entry\n";
+  cout << "4 - Remove Game (Delete)\n";
+  cout << "5 - -------\n";
   cout << "6 - Print library\n";
   cout << "7 - Find game\n";
   cout << "8 - Add Game (Sorted)\n";
