@@ -62,23 +62,11 @@ int main () {
       test.subtract();
       
       break;
+    
 
-      /**    case 5: // Delete game
-
-      cout << "Enter game title: ";
-      cin.ignore();
-      getline(cin, gameTitle);
-      cout << "Enter release year: ";
-      cin >> releaseYear;
-      cout << endl;
-      test.Delete(gameTitle, releaseYear);
-
-      break;
-      **/
-
-    case 5: //
-
-
+    case 5: // find the genre and print the games info
+      
+      test.find_genre(); 
       break;
       
     case 6: // Print library

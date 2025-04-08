@@ -35,10 +35,10 @@ class library {
   // constructor
   library();
 
-  // destructor
-  // ~library();
 
 
+
+  
 /**
  * Writes game data to a file.
  *
@@ -84,7 +84,7 @@ class library {
  * @post The specified game(s) has been found.
  * 
  */
-  void find_genre(const std::string& genre);
+  void find_genre();
 
 
 /**
@@ -132,11 +132,39 @@ class library {
  * 
  */
   void displayMenu();
- 
+
+  
+
+/**
+ * This was a temporary helper funciton I made. It was more for my use than the user's benefit. 
+ *
+ * @pre N/A
+ * @return void N/A
+ * @post N/A
+ * 
+ */
   void extra();
 
+
+/**
+ * This function adds a game to the list
+ *
+ * @pre Just needs a list to add to. (Supplied already)
+ * @return void The function doesn't return anything, it just adds a game to the list 
+ * @post The game is added to our list
+ * 
+ */
   void add();
   
+
+/**
+ * This function takes a game off the list
+ *
+ * @pre An already populated list is needed
+ * @return void No return type, just deletes a game from the list
+ * @post The list is now one game shorter!
+ * 
+ */
   void subtract(); 
   
 };

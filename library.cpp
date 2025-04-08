@@ -25,8 +25,6 @@ library::library() {
   
 }
 
-//destructor
-//library::~
 
 void library::read_from_file(string filename) {
 
@@ -98,7 +96,6 @@ void library::write_to_file(string filename) {
   games.push_back(temp); 
   
   
->>>>>>> more done #3
   ofstream file;
   file.open(filename);
 
@@ -149,8 +146,13 @@ void library::find_game(const std::string& title) {
   }  
 }
 
-void library::find_genre(const std::string& genre) {
+void library::find_genre() {
 
+
+  string genre;
+  cout << "Enter a genre: " << endl;
+  cin >> genre;
+  
  for(list<game>::iterator it = games.begin(); it != games.end(); it++) {         
 
    if(it->genre == genre) {
@@ -165,33 +167,6 @@ void library::find_genre(const std::string& genre) {
 }
 
 
-/**
-bool library::Delete(std::string title, int year) {
-
-  // Check if library is empty
-  if (games.empty()) {
-    std::cout << "ERROR: Library is empty...\n\n";
-    return false;
-  }
-
-  // Check current size of library
-  unsigned int initialSize = games.size();
-
-  // Go through list and remove entries that match desired game
-  games.remove_if([&title, year](const game& game) {
-    return game.title == title && game.year == year;
-  });
-
-  // If an entry has been removed return true
-  if (games.size() < initialSize) {
-    cout << title << " removed successfully...\n";
-    return true;
-  }
-
-  return false;
-}
-
-**/
 
 void library::print() {
 
@@ -207,6 +182,14 @@ void library::print() {
   
 void library::displayMenu() {
 
+
+  cout << "      ****     ****  ******  ****      ***  ***   *** " << endl;
+  cout << "       ***********    **      ** **    **    **   **  " << endl;
+  cout << "       *** *** ***    ****    **   **  **    **   **  " << endl;
+  cout << "       ***  *  ***    ****    **    ** **    **   **  " << endl;
+  cout << "       ***     ***    **      **     ****    **   **  " << endl;
+  cout << "      ****     ****  ******  ***      ***     *****   " << endl;    
+
   cout << endl;
   cout << "Please select one of the following options:\n";
   cout << "===========================================\n";
@@ -214,7 +197,7 @@ void library::displayMenu() {
   cout << "2 - Write to file\n";
   cout << "3 - Add game\n";
   cout << "4 - Remove Game (Delete)\n";
-  cout << "5 - -------\n";
+  cout << "5 - Display Info by Genre\n";
   cout << "6 - Print library\n";
   cout << "7 - Find game\n";
   cout << "8 - Add Game (Sorted)\n";
@@ -305,6 +288,18 @@ YouTube video by "Bo Quian" which talked about how to remove elements from an ST
 
 }
 
+
+
+
+
+/**
+ * I just made this function so I would have a quick way to see if the games were getting added to the linked list right.  
+ *
+ * @pre N/A
+ * @return void N/A
+ * @post N/A
+ * 
+ */
 void library::extra() {
 
 
