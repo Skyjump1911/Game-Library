@@ -1,26 +1,17 @@
-#
-# @file Makefile
-# @author Sam Toney
-# @date 2025-04-01
-# @brief Makefile for game library program.
-#
-# Used to automate compiling and cleaning up excess files
-#
+#Date: 4/19/2025
+#Author: Noah Melton and Sam Toney
+#Description: This is the makefile for the Game Library assignment
+CXX = g++
 
-CC = g++
-CFLAGS = -g -Wall -Wextra
+CXXFLAGS = -Wall -Wextra -g
 
-default: game-library
+all:program
 
-game-library: main.o library.o 
-	$(CC) $(CFLAGS) -o game-library main.o library.o 
-
-library.o: library.cpp library.h
-	$(CC) $(CFLAGS) -c library.cpp
-
-
+program: main.o library.o 
+	$(CXX) $(CXXFLAGS) -o program main.o library.o 
 main.o: main.cpp library.h game.h
-	$(CC) $(CFLAGS) -c main.cpp
-
+	$(CXX) $(CXXFLAGS) -c main.cpp
+library.o: library.cpp library.h game.h
+	$(CXX) $(CXXFLAGS) -c library.cpp
 clean:
-	$(RM) game-library *.o *~
+	rm -f *.o~ program

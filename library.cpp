@@ -153,8 +153,8 @@ void library::find_genre() {
   cout << "Enter a genre: " << endl;
   cin >> genre;
   
- for(list<game>::iterator it = games.begin(); it != games.end(); it++) {         
-
+ for(list<game>::iterator it = games.begin(); it != games.end(); it++) {
+   
    if(it->genre == genre) {
 
      cout << "Game Title: " << it->title << endl;
